@@ -10,7 +10,7 @@ public class RomanPrinter {
     public static String print(int num){
         return printAsciiArt(IntegerToRoman.convert(num));
     }
-    private static String printAsciiArt(String romanNumber){
+    public static String printAsciiArt(String romanNumber){
         HashMap<Character, String[]> conversionMap = new HashMap<Character, String[]>();
 
         int height = 6;
@@ -39,6 +39,6 @@ public class RomanPrinter {
 
         System.out.println(printable);
 
-        return null;
+        return printable;
     }
 }
