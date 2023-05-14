@@ -75,7 +75,7 @@ public class IntegerToRomanTest {
         //Act
         String result = IntegerToRoman.convert(num);
         //Assert
-        assertTrue(false);
+        fail();
     }
 
     @Test(expected = InvalidParameterException.class)
@@ -85,6 +85,16 @@ public class IntegerToRomanTest {
         //Act
         String result = IntegerToRoman.convert(num);
         //Assert
-        assertTrue(false);
+        fail();
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testConvertFailOnNullNumber() {
+        //Arrange
+        Integer num = null;
+        //Act
+        String result = IntegerToRoman.convert(num);
+        //Assert
+        fail();
     }
 }
