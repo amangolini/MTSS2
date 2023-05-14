@@ -4,13 +4,17 @@
 ////////////////////////////////////////////////////////////////////
 package it.unipd.mtss;
 
+import java.security.InvalidParameterException;
 import java.util.HashMap;
 
 public class RomanPrinter {
     public static String print(int num){
         return printAsciiArt(IntegerToRoman.convert(num));
     }
-    public static String printAsciiArt(String romanNumber){
+    public static String printAsciiArt(String romanNumber) {
+        if(romanNumber == null || romanNumber.isEmpty()) {
+            throw new InvalidParameterException();
+        }
         HashMap<Character, String[]> conversionMap = new HashMap<Character, String[]>();
 
         int height = 6;
@@ -25,6 +29,9 @@ public class RomanPrinter {
         String[][] result = new String[height][romanNumber.length()];
         int count = 0;
         for(Character c : romanNumber.toCharArray()) {
+            if(!conversionMap.containsKey(c)) {
+                throw new InvalidParameterException();
+            }
             result[count] = conversionMap.get(c);
             count++;
         }
